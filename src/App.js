@@ -3,12 +3,7 @@ import './App.css';
 
 import data from './news.js';
 
-function formatTime(stringTime){
-    /*
-    var momentDate = moment(stringTime);
-    return momentDate.format("dd.mm.yyyy");
-    */
-}
+
 function App() {
     require('./dateFormat.js');
     let news = require('./news.json');
@@ -16,13 +11,9 @@ function App() {
     const isShow = true;
     const color = 'yellow';
     //console.log(news[0]);
-    console.log(formatTime(data[0].dateCreated));
-
+    
   return (
     <div className="App">
-
-
-
         <div>
         {
             data.map((el,key) =>
@@ -36,9 +27,9 @@ function App() {
                         <div>Автор: {el.author}</div>
 
                         { el.categories.length > 0 && <div>Категории</div> }
-                        {  el.categories.length > 0 &&  el.categories.map((category,i) =>
-                            <p>{category.name}</p>
-                        )
+                        {
+                            el.categories.length > 0 &&  el.categories.map((category,i) =>
+                            <p>{category.name}</p>)
                         }
 
                     </div>
@@ -46,23 +37,9 @@ function App() {
                     { el.photo !== null && <div style={{width:'55%',float:'right'}}><img src={el.photo}/></div>}
                     <div style={{clear:'both'}}></div>
                 </div>
-
-
             )
-
-
-
         }
         </div>
-
-
-
-
-
-
-
-
-
     </div>
   );
 }
