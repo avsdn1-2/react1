@@ -11,13 +11,13 @@ function App() {
     const isShow = true;
     const color = 'yellow';
     //console.log(news[0]);
-    
+
   return (
     <div className="App">
         <div>
         {
             data.map((el,key) =>
-                <div style={{width:'1000px',border:'1px solid green', margin:'0 auto 5px auto'}}>
+                <div key={el.id} style={{width:'1000px',border:'1px solid green', margin:'0 auto 5px auto'}}>
                     <div style={{width:'43%',border:'1px solid blue',float:'left'}}>
                         {el.isSpecial == true? <div style={{color: 'red'}}>Special</div> :<div></div>}
                         {el.link == null? <div>Заголовок: {el.title}</div> : <div>Заголовок: <a href={el.link}>{el.title}</a></div>}
